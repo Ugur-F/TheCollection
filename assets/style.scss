@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    background-color: beige;
+}
+
+header{
+    background-color: bisque;
+    padding: 20px 0 20px 0;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.header__Simg{
+    width: 10%;
+    border: 2px solid;
+}
+.header__Simg--div{
+   text-align: center;
+}
+.header__Simg--div img{
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+}
+
+.header__Stext{
+    border: 2px solid;
+    width: 60%;
+}
