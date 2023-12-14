@@ -113,16 +113,24 @@ function createCard(athlete) {
     return card;
 }
 
-const main = document.querySelector("main");
+// const main = document.querySelector("main");
 
-fCollection.forEach((athlete) => {
-    const card = createCard(athlete);
-    main.appendChild(card);
-});
+// fCollection.forEach((athlete) => {
+//     const card = createCard(athlete);
+//     main.appendChild(card);
+// });
 
 //
 
-function toggleCardVisibility() {
+const main = document.querySelector("main");
+const allButton = document.getElementById("allButton");
+const flyweightButton = document.getElementById("flyweightButton");
+const featherweightButton = document.getElementById("featherweightButton");
+const lightweightButton = document.getElementById("lightweightButton");
+const middleweightButton = document.getElementById("middleweightButton");
+const heavyweightButton = document.getElementById("heavyweightButton");
+
+function showAllCards() {
     main.innerHTML = ""; // Efface le contenu actuel de main
 
     fCollection.forEach((athlete) => {
@@ -131,4 +139,23 @@ function toggleCardVisibility() {
     });
 }
 
-toggleButton.addEventListener("click", toggleCardVisibility);
+function showCardsByDivision(division) {
+    main.innerHTML = ""; // Efface le contenu actuel de main
+
+    const filteredAthletes = fCollection.filter(athlete => athlete.division === division);
+
+    filteredAthletes.forEach((athlete) => {
+        const card = createCard(athlete);
+        main.appendChild(card);
+    });
+}
+
+allButton.addEventListener("click", showAllCards);
+flyweightButton.addEventListener("click", () => showCardsByDivision("Flyweight"));
+featherweightButton.addEventListener("click", () => showCardsByDivision("Featherweight"));
+lightweightButton.addEventListener("click", () => showCardsByDivision("Lightweight"));
+middleweightButton.addEventListener("click", () => showCardsByDivision("Middleweight"));
+heavyweightButton.addEventListener("click", () => showCardsByDivision("Heavyweight"));
+
+
+document.addEventListener("DOMContentLoaded", showAllCards); //afficher toutes les card quand j'ouvre la page
