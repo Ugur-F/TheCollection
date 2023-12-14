@@ -161,4 +161,11 @@ button {
     margin-left: auto;
     margin-right: auto;
   }
+}
+@media screen and (max-width: 643px) {
+  .Sbutton {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40%;
+  }
 }/*# sourceMappingURL=style.css.map */

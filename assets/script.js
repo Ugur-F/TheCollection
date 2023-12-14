@@ -159,3 +159,4 @@ heavyweightButton.addEventListener("click", () => showCardsByDivision("Heavyweig
 
 
 document.addEventListener("DOMContentLoaded", showAllCards); //afficher toutes les card quand j'ouvre la page
+
