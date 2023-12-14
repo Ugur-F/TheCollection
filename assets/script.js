@@ -1,15 +1,15 @@
 const fCollection = [
     {
-        name: "Khabib Nurmagomedov",
-        nickname: "The Eagle",
+        name: "Khabib N.",
+        nickname: '"The Eagle"',
         nationality: "assets/img/flag/russie.png",
-        picture: "assets/img/athlete/khabib.png",
+        picture: "assets/img/athlete/khabibN.png",
         division: "Lightweight",
     },
 
     {
         name: "Charles Oliveira",
-        nickname: "Do Bronxs",
+        nickname: '"Do Bronxs"',
         nationality: "assets/img/flag/bresil.png",
         picture: "assets/img/athlete/charlesO.png",
         division: "Lightweight",
@@ -17,7 +17,7 @@ const fCollection = [
 
     {
         name: "Francis Ngannou",
-        nickname: "The Predator",
+        nickname: '"The Predator"',
         nationality: "assets/img/flag/cameroun.png",
         picture: "assets/img/athlete/francisN.png",
         division: "Heavyweight",
@@ -25,39 +25,39 @@ const fCollection = [
 
     {
         name: "Jon Jones",
-        nickname: "Bones",
-        nationality: "assets/img/flag/etat-unis.png",
+        nickname: '"Bones"',
+        nationality: "assets/img/flag/etats-unis.png",
         picture: "assets/img/athlete/jonJ.png",
         division: "Heavyweight",
     },
 
     {
         name: "Demetrious Johnson",
-        nickname: "Mighty Mouse",
-        nationality: "assets/img/flag/etat-unis.png",
+        nickname: '"Mighty Mouse"',
+        nationality: "assets/img/flag/etats-unis.png",
         picture: "assets/img/athlete/demetriousJ.png",
         division: "Flyweight",
     },
 
     {
         name: "Kamaru Usman",
-        nickname: "Nigerian Nightmare",
+        nickname: '"Nigerian Nightmare"',
         nationality: "assets/img/flag/cameroun.png",
-        picture: "assets/img/athlete/kamrauU.png",
+        picture: "assets/img/athlete/kamaruU.png",
         division: "Middleweight",
     },
 
     {
         name: "Israel Adesanya",
-        nickname: "The Last Stylebender",
+        nickname: '"The Last Stylebender"',
         nationality: "assets/img/flag/nigeria.png",
-        picture: "assets/img/athlete/khabib.png",
+        picture: "assets/img/athlete/israelA.png",
         division: "Middleweight",
     },
     
     {
         name: "Khamzat Chimaev",
-        nickname: "Borz",
+        nickname: '"Borz"',
         nationality: "assets/img/flag/suede.png",
         picture: "assets/img/athlete/khamzatC.png",
         division: "Middleweight",
@@ -65,16 +65,16 @@ const fCollection = [
 
     {
         name: "Max Holloway",
-        nickname: "Blessed",
-        nationality: "assets/img/flag/etat-unis.png",
+        nickname: '"Blessed"',
+        nationality: "assets/img/flag/etats-unis.png",
         picture: "assets/img/athlete/maxH.png",
         division: "Featherweight",
     },
 
     {
         name: "Dustin Poirier",
-        nickname: "The Diamond",
-        nationality: "assets/img/flag/etat-unis.png",
+        nickname: '"The Diamond"',
+        nationality: "assets/img/flag/etats-unis.png",
         picture: "assets/img/athlete/dustinP.png",
         division: "Lightweight",
     },
@@ -82,5 +82,53 @@ const fCollection = [
 
 //=========================================================================================================
 
-console.log("test");
+function createCard(athlete) {
+    const card = document.createElement("section");
+    card.classList.add("card");
 
+    const h2 = document.createElement("h2");
+    h2.textContent = athlete.name;
+
+    const h3 = document.createElement("h3");
+    h3.textContent = athlete.nickname;
+
+    const imgAthlete = document.createElement("img");
+    imgAthlete.classList.add("imgAthlete");
+    imgAthlete.src = athlete.picture;
+    imgAthlete.alt = `Image de ${athlete.name}`;
+
+    const p = document.createElement("p");
+    p.textContent = athlete.division;
+
+    const imgFlag = document.createElement("img");
+    imgFlag.src = athlete.nationality;
+    imgFlag.alt = `Drapeau de ${athlete.name}`;
+
+    card.appendChild(h2);
+    card.appendChild(h3);
+    card.appendChild(imgAthlete);
+    card.appendChild(p);
+    card.appendChild(imgFlag);
+
+    return card;
+}
+
+const main = document.querySelector("main");
+
+fCollection.forEach((athlete) => {
+    const card = createCard(athlete);
+    main.appendChild(card);
+});
+
+//
+
+function toggleCardVisibility() {
+    main.innerHTML = ""; // Efface le contenu actuel de main
+
+    fCollection.forEach((athlete) => {
+        const card = createCard(athlete);
+        main.appendChild(card);
+    });
+}
+
+toggleButton.addEventListener("click", toggleCardVisibility);
